@@ -111,10 +111,10 @@ def index():
                         ]
                 replyMessage(payload)
             elif events[0]["message"]["type"] == "location":
-                title = events[0]["message"]["title"]
+                address = events[0]["message"]["address"]
                 latitude = events[0]["message"]["latitude"]
                 longitude = events[0]["message"]["longitude"]
-                payload["messages"] = [getLocationConfirmMessage(title, latitude, longitude)]
+                payload["messages"] = [getLocationConfirmMessage(latitude, longitude, address)]
                 replyMessage(payload)
 
         elif events[0]["type"] == "postback":
@@ -235,11 +235,11 @@ def getCarouselMessage(data):
     return message
 
 
-def getLocationConfirmMessage(title, latitude, longitude):
+def getLocationConfirmMessage(latitude, longitude, address):
     message = dict()
     message["type"] = "template"
     message["altText"] = "this is a confirm template"
-    data = {"title": title, "latitude": latitude, "longitude": longitude, "action": "get_near"}
+    data = {"latitude": latitude, "longitude": longitude, "action": "get_near", "address": address}
     message["template"] = {
           "type": "confirm",
           "text": F"您是否確定搜尋{title}附近景點？",
@@ -253,7 +253,7 @@ def getLocationConfirmMessage(title, latitude, longitude):
                     {
                         "type": "message",
                         "label": "否",
-                        "text": "否"
+                        "text": "感謝您的使用"
                       }
           ]
     }
