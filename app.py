@@ -94,6 +94,8 @@ def index():
                               }
                             }
                         ]
+                elif text == "圖片":
+                    payload["messages"] = [getImageMessage()]
                 else:
                     payload["messages"] = [
                             {
@@ -108,6 +110,7 @@ def index():
                 longitude = events[0]["message"]["longitude"]
                 payload["messages"] = [getLocationConfirmMessage(title, latitude, longitude)]
                 replyMessage(payload)
+
         elif events[0]["type"] == "postback":
             if "params" in events[0]["postback"]:
                 reservedTime = events[0]["postback"]["params"]["datetime"].replace("T", " ")
