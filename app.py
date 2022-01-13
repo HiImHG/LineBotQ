@@ -94,8 +94,6 @@ def index():
                               }
                             }
                         ]
-                elif text == "圖片":
-                    payload["messages"] = [getImageMessage()]
                 else:
                     payload["messages"] = [
                             {
