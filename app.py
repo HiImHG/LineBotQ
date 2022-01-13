@@ -233,7 +233,7 @@ def getCarouselMessage(data):
             {
                 "imageUrl": "https://image.cdn-eztravel.com.tw/Dj2VZMf9_v0RjnZhPiwL5WZ1HHug-0Lxiqojr9Xo0Po/g:ce/aHR0cHM6Ly92YWNhdGlvbi5jZG4tZXp0cmF2ZWwuY29tLnR3L2ltZy9WRFIvVFAxXzc4NjQ0NjgwMy5qcGc.jpg",
                 "action": {
-                    "type": "postback",
+                    "type": "uri",
                     "label": "士林夜市",
                     "data": json.dumps(data),
                     "uri": "https://kenalice.tw/blog/post/shilin-nightmarket"
