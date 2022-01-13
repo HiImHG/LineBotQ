@@ -202,10 +202,35 @@ def getCarouselMessage(data):
     message["type"] = "template"
     message["altText"] = "this is a image carousel template"
     message["template"] = {
-          "type": "image_carousel",
-          "columns": [
+        "type": "image_carousel",
+        "columns": [
+            {
+                "imageUrl": F"{end_point}/static/taipei_101.jpeg",
+                "action": {
+                    "type": "postback",
+                    "label": "台北101",
+                    "data": json.dumps(data)
+                }
+            },
+            {
+                "imageUrl": F"{end_point}/static/taipei_1.jpeg",
+                "action": {
+                    "type": "postback",
+                    "label": "台北101",
+                    "data": json.dumps(data)
+                }
 
-          ]
+            },
+            {
+                "imageUrl": "https://shotrip.com/wp-content/uploads/2015/04/bbbcd75e-a242-4265-b7ff-b75a1dc0bccf.jpg",
+                "action": {
+                    "type": "postback",
+                    "label": "台北孔廟",
+                    "data": json.dumps(data)
+                }
+
+            }
+        ]
     }
     return message
 
@@ -216,7 +241,21 @@ def getLocationConfirmMessage(title, latitude, longitude):
     message["altText"] = "this is a confirm template"
     data = {"title": title, "latitude": latitude, "longitude": longitude, "action": "get_near"}
     message["template"] = {
-
+          "type": "confirm",
+          "text": F"您是否確定搜尋{title}附近景點？",
+          "actions": [
+                    {
+                       "type": "postback",
+                       "label": "是",
+                       "data": json.dumps(data),
+                       "text": "是"
+                      },
+                    {
+                        "type": "message",
+                        "label": "否",
+                        "text": "否"
+                      }
+          ]
     }
     return message
 
