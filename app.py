@@ -242,7 +242,7 @@ def getLocationConfirmMessage(latitude, longitude, address):
     data = {"latitude": latitude, "longitude": longitude, "action": "get_near", "address": address}
     message["template"] = {
           "type": "confirm",
-          "text": F"您是否確定搜尋{title}附近景點？",
+          "text": F"您是否確定搜尋{address}附近景點？",
           "actions": [
                     {
                        "type": "postback",
