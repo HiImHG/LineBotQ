@@ -95,6 +95,8 @@ def index():
                               }
                             }
                         ]
+                elif text == "錄音":
+                    payload["messages"] = [getMRTSoundMessage()]
                 else:
                     payload["messages"] = [
                             {
