@@ -90,6 +90,11 @@ def index():
                                         "type": "uri",
                                         "label": "聯絡我",
                                         "uri": "tel:0911111111"
+                                      },
+                                      {
+                                          "type": "message",
+                                          "label": "看看台北101",
+                                          "text": "台北101"
                                       }
                                   ]
                               }
